@@ -59,6 +59,26 @@ python main.py
 
 `solution.json` 只作为运行过程中的临时输出，已被 `.gitignore` 排除，不应提交登录数据或个人活动结果。
 
+## 发布 exe
+
+构建机需要 Python 3.12 或 3.13。不要使用 Python 3.14 构建 OR-Tools 冻结版。
+
+在 PowerShell 执行：
+
+```powershell
+.\build_windows.ps1
+```
+
+脚本会创建构建虚拟环境、安装依赖、下载 Chromium，并生成：
+
+```text
+dist\\三角洲行动-大红艺术家\\三角洲行动-大红艺术家.exe
+```
+
+发布时请压缩整个 `dist\\三角洲行动-大红艺术家` 文件夹，而不是只复制 exe。用户机器不需要安装 Python、pip、Playwright 或 Chromium。
+
+PyInstaller 会把 Python 解释器和依赖放入发布包；Playwright Chromium 通过 `PLAYWRIGHT_BROWSERS_PATH=0` 在构建阶段一并收集。这样发布包会比较大，但目标电脑无需额外安装运行环境。
+
 ## 数据来源
 
 ### GetPeriodLoots
