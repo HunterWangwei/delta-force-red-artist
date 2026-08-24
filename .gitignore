@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+solution.json
+*.log
+.gradio/
+dist/
+build/
+*.spec
